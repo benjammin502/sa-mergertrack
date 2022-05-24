@@ -1,0 +1,32 @@
+:global #workbenchPageContent {
+  // max-width: 1316px;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+
+  &>div {
+      &>div {
+          overflow: visible;
+
+          &>div {
+              overflow: visible;
+              padding: 0;
+
+              .CanvasComponent {
+
+                  .CanvasZone {
+                      max-width: 100%;
+                      margin: auto;
+                      // padding-left: 24px;
+                  }
+
+                  .CanvasZone--noMargin {
+                      margin: auto;
+                  }
+
+              }
+          }
+      }
+  }
+
+}

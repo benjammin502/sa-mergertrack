@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "sa-merger-track-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/saMergerTrack/SaMergerTrackWebPart.js",
+          "manifest": "./src/webparts/saMergerTrack/SaMergerTrackWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SaMergerTrackWebPartStrings": "lib/webparts/saMergerTrack/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}

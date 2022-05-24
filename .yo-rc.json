@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.14.0",
+    "libraryName": "sa-mergertrack",
+    "libraryId": "cfa2c388-48d5-4312-8c5d-b8b0c4d7c1a8",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "sa-mergertrack",
+    "solutionShortDescription": "sa-mergertrack description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

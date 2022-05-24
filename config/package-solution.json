@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "sa-mergertrack-client-side-solution",
+    "id": "cfa2c388-48d5-4312-8c5d-b8b0c4d7c1a8",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.14.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "sa-mergertrack description"
+      },
+      "longDescription": {
+        "default": "sa-mergertrack description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "sa-mergertrack Feature",
+        "description": "The feature that activates elements of the sa-mergertrack solution.",
+        "id": "4c87ff27-680e-4c3f-8331-503114b3f62a",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/sa-mergertrack.sppkg"
+  }
+}
