@@ -35,7 +35,6 @@ import '@pnp/sp/webs';
 import { PrincipalType } from '@pnp/spfx-controls-react/lib/PeoplePicker';
 import * as React from 'react';
 import { Controller, useForm } from "react-hook-form";
-import ControlledCurrencyTextField from './controlledInputs/ControlledCurrencyTextField';
 import ControlledDateInput from './controlledInputs/ControlledDateInput';
 import ControlledPeoplePicker from './controlledInputs/ControlledPeoplePicker';
 import ControlledSelect from './controlledInputs/ControlledSelect';
@@ -184,8 +183,6 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
   'Notify',
   'Participating_x0020_Co_x002e_',
   'RH_x0020_Client_x0020_Action',
-  'Rev_x002e__x0020_Exclusion_x0020',
-  'Rev_x002e__x0020_Inclusion_x0020',
   'SAVP_x0020__x0028_A_x0029_Id',
   'SAVP_x0020__x0028_b_x0029_Id',
   'SA_x0020_Client_x0020__x0028_a_x',
@@ -221,10 +218,17 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
   const setDataValsFromAutocomplete = (selectedData) => {
     if (selectedData) {
       console.log(selectedData);
+      // dynamically set sa/ra client a value
       setValue(
         'SA_x0020_Client_x0020__x0028_a_x',
         selectedData.contractName
         );
+        // dynamically set sa/ra client b value
+        setValue(
+          'SA_x0020_Client_x0020__x0028_b_x',
+          selectedData.contractName
+          );
+        // Dynamically set Scope - Client A value
         setValue(
           'Scope_x0020__x002d__x0020_Client',
           selectedData.scope,
@@ -325,8 +329,8 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
       Notify: rhfData.Notify,
       Participating_x0020_Co_x002e_: rhfData.Participating_x0020_Co_x002e_,
       RH_x0020_Client_x0020_Action: rhfData.RH_x0020_Client_x0020_Action,
-      Rev_x002e__x0020_Exclusion_x0020: rhfData.Rev_x002e__x0020_Exclusion_x0020,
-      Rev_x002e__x0020_Inclusion_x0020: rhfData.Rev_x002e__x0020_Inclusion_x0020,
+      // Rev_x002e__x0020_Exclusion_x0020: rhfData.Rev_x002e__x0020_Exclusion_x0020,
+      // Rev_x002e__x0020_Inclusion_x0020: rhfData.Rev_x002e__x0020_Inclusion_x0020,
       SAVP_x0020__x0028_A_x0029_Id: rhfData.SAVP_x0020__x0028_A_x0029_Id,
       SAVP_x0020__x0028_b_x0029_Id: rhfData.SAVP_x0020__x0028_b_x0029_Id,
       SA_x0020_Client_x0020__x0028_a_x: rhfData.SA_x0020_Client_x0020__x0028_a_x,
@@ -711,7 +715,6 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
                 rules={{ required: true }}
                 label="Scope - Client A"
                 className={classes.formControl}
-              // helperText="Required"
               >
                 <MenuItem value="Affiliates">Affiliates</MenuItem>
                 <MenuItem value="Definitive List">Definitive List</MenuItem>
@@ -799,38 +802,6 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
                 name="Participating_x0020_Co_x002e_"
                 required={false}
                 label="Participating Co. Name"
-                className={classes.formControl}
-              />
-
-            </Grid>
-
-
-          </Grid>
-
-          {/* 9th row inputs */}
-          <Grid container direction="row" justifyContent="space-around" alignItems="flex-start" spacing={2}>
-
-            <Grid item xs={12} md={6}>
-              {/* currency text field */}
-              <ControlledCurrencyTextField
-                control={control}
-                name="Rev_x002e__x0020_Inclusion_x0020"
-                required={false}
-                placeholder="0"
-                label="Rev. Added (est.)"
-                className={classes.formControl}
-                helperText="Include Cents (Will be .00 if not specified)"
-              />
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <ControlledCurrencyTextField
-                control={control}
-                name="Rev_x002e__x0020_Exclusion_x0020"
-                required={false}
-                placeholder="0"
-                label="Rev. Removed (est.)"
-                helperText="Include Cents (Will be .00 if not specified)"
                 className={classes.formControl}
               />
 
