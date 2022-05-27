@@ -216,6 +216,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
   };
 
   const setDataValsFromAutocomplete = (selectedData) => {
+
     if (selectedData) {
       console.log(selectedData);
       // dynamically set sa/ra client a value
@@ -329,8 +330,6 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
       Notify: rhfData.Notify,
       Participating_x0020_Co_x002e_: rhfData.Participating_x0020_Co_x002e_,
       RH_x0020_Client_x0020_Action: rhfData.RH_x0020_Client_x0020_Action,
-      // Rev_x002e__x0020_Exclusion_x0020: rhfData.Rev_x002e__x0020_Exclusion_x0020,
-      // Rev_x002e__x0020_Inclusion_x0020: rhfData.Rev_x002e__x0020_Inclusion_x0020,
       SAVP_x0020__x0028_A_x0029_Id: rhfData.SAVP_x0020__x0028_A_x0029_Id,
       SAVP_x0020__x0028_b_x0029_Id: rhfData.SAVP_x0020__x0028_b_x0029_Id,
       SA_x0020_Client_x0020__x0028_a_x: rhfData.SA_x0020_Client_x0020__x0028_a_x,
