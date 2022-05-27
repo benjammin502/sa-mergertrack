@@ -218,7 +218,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
   const setDataValsFromAutocomplete = (selectedData) => {
 
     if (selectedData) {
-      console.log(selectedData);
+      // console.log(selectedData);
       // dynamically set sa/ra client a value
       setValue(
         'SA_x0020_Client_x0020__x0028_a_x',
@@ -263,10 +263,10 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
     let attachSuccess = false;
     const item: IItem = sp.web.lists.getByTitle("MergerTrack Dashboard").items.getById(listItemId);
     item.attachmentFiles.add(fileToUpload[0].name, fileToUpload[0]).then(() => {
-      console.log('File Uploaded Successfully');
+      // console.log('File Uploaded Successfully');
       attachSuccess = true;
     }).catch((err) => {
-      console.log('Error Uploading Attachment: ', err);
+      // console.log('Error Uploading Attachment: ', err);
       attachSuccess = false;
     });
     return attachSuccess;
@@ -274,18 +274,18 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
 
   // delete current Item attachment from list item when user clicks corresponding trashcan/delete icon
   const deleteItemAttachment = async () => {
-    console.log(fileNameToDelete);
-    console.log(currentAttachments);
+    // console.log(fileNameToDelete);
+    // console.log(currentAttachments);
 
     const newCurrentAttachmentsArray = currentAttachments;
 
     const item: IItem = sp.web.lists.getByTitle("MergerTrack Dashboard").items.getById(itemId);
     item.attachmentFiles.getByName(fileNameToDelete).recycle().then((data) => {
-      console.log(data);
+      // console.log(data);
       setOpenDeletedAttachmentModal(true);
 
       let updatedAttachments = newCurrentAttachmentsArray.filter((item) => item.FileName !== fileNameToDelete);
-      console.log(updatedAttachments);
+      // console.log(updatedAttachments);
       setCurrentAttachments(updatedAttachments);
       handleModalClose();
     }).catch((err) => {
@@ -343,9 +343,9 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
       Title: rhfData.Title,
     };
 
-    console.log(dataToSubmit);
-    console.log(itemId);
-    console.log(isValid);
+    // console.log(dataToSubmit);
+    // console.log(itemId);
+    // console.log(isValid);
 
     if (isValid) {
       // check itemId. This determines whether to add a new item or update an existing one
@@ -357,7 +357,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
             .getByTitle('MergerTrack Dashboard')
             .items
             .add(dataToSubmit);
-          console.log(addListItem);
+          // console.log(addListItem);
 
           if (fileToUpload.length > 0) {
             attachmentSuccess = uploadAttachments(addListItem.data.Id);
@@ -371,7 +371,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
 
           setSubmissionSuccess(false);
           setOpenSubmissionModal(true);
-          console.log(err);
+          // console.log(err);
         }
 
       } else {
@@ -384,7 +384,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
             .items
             .getById(parseInt(itemId))
             .update(dataToSubmit);
-          console.log(updateListItem);
+          // console.log(updateListItem);
 
           if (fileToUpload.length > 0) {
             attachmentSuccess = uploadAttachments(itemId);
@@ -408,7 +408,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
 
 
   React.useEffect(() => {
-    console.log(fileToUpload);
+    // console.log(fileToUpload);
   }, [fileToUpload]);
 
   React.useEffect(() => {
@@ -437,7 +437,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
           .items
           .select(selectListColumns)
           .getById(itemId)();
-        console.log(itemData);
+        // console.log(itemData);
 
         reset(itemData);
         setPeoplePickerUsers(itemData);
@@ -456,7 +456,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
         const item: IItem = sp.web.lists.getByTitle("MergerTrack Dashboard").items.getById(itemId);
         // add an attachment
         const attachments = await item.attachmentFiles();
-        console.log(attachments);
+        // console.log(attachments);
 
         setCurrentAttachments(attachments);
       })().catch(console.log)
@@ -654,7 +654,7 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
                     value={autocompleteValue}
                     onChange={
                       (e, data) => {
-                        console.log(data);
+                        // console.log(data);
                         onChange(data);
                         setAutocompleteValue(data);
                         setValue(
@@ -930,13 +930,13 @@ const SaMergerTrack: React.FC<ISaMergerTrackProps> = (props) => {
 
           <Grid container direction="row" justifyContent="center" alignItems="center" spacing={2}>
 
-            <pre>
+            {/* <pre>
               {JSON.stringify(
                 { errors, isValid },
                 null,
                 2
               )}
-            </pre>
+            </pre> */}
 
             <Grid item>
 
